@@ -1,0 +1,17 @@
+{
+  "name": "githubdb",
+  "version": "1.0.0",
+  "description": "Turn your GitHub repo into a database",
+  "main": "dist/index.js",
+  "author": "Steffan Sluis <steffansluis@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "prestart": "npm run dist",
+    "start": "node dist",
+    "dist": "tsc"
+  },
+  "dependencies": {
+    "@types/node": "^7.0.29",
+    "typescript": "^2.3.4"
+  }
+}
