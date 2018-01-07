@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './App.css';
 
-import * as githubdb from 'githubdb';
+import githubdb from 'githubdb';
 
 const logo = require('./logo.svg');
 
@@ -13,14 +13,16 @@ class App extends React.Component<{}, { token: string }> {
       token: ''
     };
 
-    githubdb();
+    githubdb().then(res => {
+      console.log(res);
+    });
   }
 
-  handleChange(e: any) {
+  handleChange = (e: any) => {
     this.setState({ token: e.target.value });
   }
 
-  setToken() {
+  setToken = () => {
     /*let token = window['$']("#token").value;*/
     console.log(`Setting token to ${this.state.token}`);
   }
@@ -35,8 +37,8 @@ class App extends React.Component<{}, { token: string }> {
         <p className="App-intro">
           Enter your GitHub token here:.
         </p>
-        <input id="token" value={this.state.token} onChange={ this.handleChange.bind(this) } placeholder='Token...' />
-        <input type="button" value="Set token" onClick={this.setToken.bind(this)} />
+        <input id="token" value={this.state.token} onChange={ this.handleChange } placeholder='Token...' />
+        <input type="button" value="Set token" onClick={this.setToken} />
       </div>
     );
   }
